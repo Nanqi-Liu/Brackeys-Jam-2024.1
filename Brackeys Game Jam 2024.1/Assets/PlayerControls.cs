@@ -151,7 +151,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""FlashLight"",
+                    ""name"": ""Flashlight"",
                     ""type"": ""Button"",
                     ""id"": ""442c1faa-b52e-4a98-bebb-492302d98329"",
                     ""expectedControlType"": ""Button"",
@@ -190,7 +190,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FlashLight"",
+                    ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -201,7 +201,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FlashLight"",
+                    ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -217,7 +217,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Player Action
         m_PlayerAction = asset.FindActionMap("Player Action", throwIfNotFound: true);
         m_PlayerAction_Interact = m_PlayerAction.FindAction("Interact", throwIfNotFound: true);
-        m_PlayerAction_FlashLight = m_PlayerAction.FindAction("FlashLight", throwIfNotFound: true);
+        m_PlayerAction_Flashlight = m_PlayerAction.FindAction("Flashlight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -334,13 +334,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerAction;
     private List<IPlayerActionActions> m_PlayerActionActionsCallbackInterfaces = new List<IPlayerActionActions>();
     private readonly InputAction m_PlayerAction_Interact;
-    private readonly InputAction m_PlayerAction_FlashLight;
+    private readonly InputAction m_PlayerAction_Flashlight;
     public struct PlayerActionActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActionActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Interact => m_Wrapper.m_PlayerAction_Interact;
-        public InputAction @FlashLight => m_Wrapper.m_PlayerAction_FlashLight;
+        public InputAction @Flashlight => m_Wrapper.m_PlayerAction_Flashlight;
         public InputActionMap Get() { return m_Wrapper.m_PlayerAction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -353,9 +353,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @FlashLight.started += instance.OnFlashLight;
-            @FlashLight.performed += instance.OnFlashLight;
-            @FlashLight.canceled += instance.OnFlashLight;
+            @Flashlight.started += instance.OnFlashlight;
+            @Flashlight.performed += instance.OnFlashlight;
+            @Flashlight.canceled += instance.OnFlashlight;
         }
 
         private void UnregisterCallbacks(IPlayerActionActions instance)
@@ -363,9 +363,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @FlashLight.started -= instance.OnFlashLight;
-            @FlashLight.performed -= instance.OnFlashLight;
-            @FlashLight.canceled -= instance.OnFlashLight;
+            @Flashlight.started -= instance.OnFlashlight;
+            @Flashlight.performed -= instance.OnFlashlight;
+            @Flashlight.canceled -= instance.OnFlashlight;
         }
 
         public void RemoveCallbacks(IPlayerActionActions instance)
@@ -391,6 +391,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IPlayerActionActions
     {
         void OnInteract(InputAction.CallbackContext context);
-        void OnFlashLight(InputAction.CallbackContext context);
+        void OnFlashlight(InputAction.CallbackContext context);
     }
 }

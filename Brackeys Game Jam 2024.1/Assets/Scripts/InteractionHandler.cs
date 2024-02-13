@@ -21,7 +21,6 @@ public class InteractionHandler : MonoBehaviour
     {
         cameraObject = Camera.main.transform;
         layerInteractables = LayerMask.NameToLayer("Interactable");
-        Debug.Log(layerInteractables);
     }
 
     private void FixedUpdate()

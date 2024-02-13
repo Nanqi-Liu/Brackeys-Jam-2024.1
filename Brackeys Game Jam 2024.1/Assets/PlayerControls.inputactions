@@ -129,7 +129,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "FlashLight",
+                    "name": "Flashlight",
                     "type": "Button",
                     "id": "442c1faa-b52e-4a98-bebb-492302d98329",
                     "expectedControlType": "Button",
@@ -168,7 +168,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FlashLight",
+                    "action": "Flashlight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -179,7 +179,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FlashLight",
+                    "action": "Flashlight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
