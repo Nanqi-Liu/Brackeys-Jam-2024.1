@@ -45,7 +45,7 @@ namespace PA
         public void TickInput(float delta)
         {
             MoveInput(delta);
-            //HandleRollingInput(delta);
+            HandleInteractInput(delta);
         }
 
         private void MoveInput(float delta)
@@ -57,12 +57,13 @@ namespace PA
             mouseY = cameraInput.y;
         }
 
-        private void HandleRollingInput(float delta)
+        private void HandleInteractInput(float delta)
         {
-            a_Input = inputActions.PlayerAction.Interact.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
+            //a_Input = inputActions.PlayerAction.Interact.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
+            a_Input = inputActions.PlayerAction.Interact.triggered;
             if (a_Input)
             {
-                Debug.Log("interacting");
+                //Debug.Log("interacting");
                 interactFlag = true;
             }
         }

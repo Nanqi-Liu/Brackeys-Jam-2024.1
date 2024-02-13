@@ -32,12 +32,6 @@ namespace PA
         public float minimumPivot = -85;
         public float maximumPivot = 85;
 
-        [Header("Interact")]
-        [SerializeField]
-        float interactDistance = 2f;
-        [SerializeField]
-        LayerMask interactIgnoreLayer;
-
         private void Start()
         {
             rigidbody = GetComponent<Rigidbody>();
@@ -59,6 +53,7 @@ namespace PA
             float delta = Time.deltaTime;
             HandleMovement(delta);
             HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);
+            HandleInteraction(delta);
         }
 
         #region Movement
@@ -107,7 +102,10 @@ namespace PA
             {
                 inputHandler.interactFlag = false;
 
-                
+                if (interactionHandler.targetInteractable != null)
+                {
+                    interactionHandler.targetInteractable.Interact();
+                }
             }
         }
 
