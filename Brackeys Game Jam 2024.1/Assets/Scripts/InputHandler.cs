@@ -12,8 +12,8 @@ namespace PA
         public float mouseX;
         public float mouseY;
 
-        public bool b_Input;
-        public bool rollFlag;
+        public bool a_Input;
+        public bool interactFlag = false;
 
         PlayerControls inputActions;
 
@@ -57,14 +57,14 @@ namespace PA
             mouseY = cameraInput.y;
         }
 
-        //private void HandleRollingInput(float delta)
-        //{
-        //    b_Input = inputActions.PlayerAction.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
-        //    if (b_Input)
-        //    {
-        //        Debug.Log("rollFlag");
-        //        rollFlag = true;
-        //    }
-        //}
+        private void HandleRollingInput(float delta)
+        {
+            a_Input = inputActions.PlayerAction.Interact.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
+            if (a_Input)
+            {
+                Debug.Log("interacting");
+                interactFlag = true;
+            }
+        }
     }
 }

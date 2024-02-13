@@ -10,6 +10,8 @@ namespace PA
         InputHandler inputHandler;
         Vector3 moveDirection;
 
+        InteractionHandler interactionHandler;
+
         [HideInInspector]
         public Transform myTransform;
 
@@ -30,10 +32,17 @@ namespace PA
         public float minimumPivot = -85;
         public float maximumPivot = 85;
 
+        [Header("Interact")]
+        [SerializeField]
+        float interactDistance = 2f;
+        [SerializeField]
+        LayerMask interactIgnoreLayer;
+
         private void Start()
         {
             rigidbody = GetComponent<Rigidbody>();
             inputHandler = GetComponent<InputHandler>();
+            interactionHandler = GetComponent<InteractionHandler>();
             cameraObject = Camera.main.transform;
             myTransform = transform;
         }
@@ -86,6 +95,20 @@ namespace PA
 
             Vector3 projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
             rigidbody.velocity = projectedVelocity;
+        }
+
+        #endregion
+
+        #region Interaction
+
+        public void HandleInteraction(float delta)
+        {
+            if (inputHandler.interactFlag)
+            {
+                inputHandler.interactFlag = false;
+
+                
+            }
         }
 
         #endregion

@@ -123,6 +123,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &174187094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5237261477368149918, guid: 8d4f146fdb4114e4e881f0a2593aee29, type: 3}
+  m_PrefabInstance: {fileID: 5237261477207056494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &174187099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174187094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe24fcdd38b12544813b87590a0da2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 0}
+  maxDistance: 2
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &294493616
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +271,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330290528}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
@@ -494,7 +516,7 @@ GameObject:
   - component: {fileID: 722881869}
   - component: {fileID: 722881868}
   - component: {fileID: 722881867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,6 +993,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5237261477368149918, guid: 8d4f146fdb4114e4e881f0a2593aee29, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 174187099}
     - targetCorrespondingSourceObject: {fileID: 6780432338318930588, guid: 8d4f146fdb4114e4e881f0a2593aee29, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5237261477207056496}
