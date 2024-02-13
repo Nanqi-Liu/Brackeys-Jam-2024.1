@@ -16,7 +16,9 @@ public class Key : Interactable
 
     public override void Interact()
     {
+        // Pickup the key
         targetDoor.hasKey += 1;
+        AudioManager.instance.PlaySound("KeyPickup");
         Destroy(gameObject);
     }
 

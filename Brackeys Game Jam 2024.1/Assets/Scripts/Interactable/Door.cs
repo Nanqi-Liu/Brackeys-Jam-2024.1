@@ -68,16 +68,19 @@ public class Door : Interactable
     private void Open()
     {
         animator.Play("DoorOpen", 0, 0f);
+        AudioManager.instance.PlaySound("DoorOpen");
     }
 
     private void Close()
     {
         animator.Play("DoorClose", 0, 0f);
+        AudioManager.instance.PlaySound("DoorClose");
     }
 
     private void Locked()
     {
         // Play some lock sound
+        AudioManager.instance.PlaySound("DoorLock");
     }
 
     private void Unlock()
@@ -85,5 +88,6 @@ public class Door : Interactable
         hasKey -= 1;
         isLocked -= 1;
         // Play some unlock sound
+        AudioManager.instance.PlaySound("DoorUnlock");
     }
 }
