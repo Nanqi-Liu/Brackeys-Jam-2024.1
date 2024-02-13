@@ -16,16 +16,19 @@ public class Key : Interactable
 
     public override void Interact()
     {
-        throw new System.NotImplementedException();
+        targetDoor.hasKey += 1;
+        Destroy(gameObject);
     }
 
     public override void OffSelected()
     {
+        // Highlight
         material.SetInt("_Enable", 0);
     }
 
     public override void OnSelected()
     {
+        // De-highlight
         material.SetInt("_Enable", 1);
     }
 }

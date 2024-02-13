@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 34814137}
   - component: {fileID: 34814136}
   m_Layer: 6
-  m_Name: Highlighter
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d37e0d9721841498bfdd25f4add419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDoor: {fileID: 0}
+  targetDoor: {fileID: 188863851}
 --- !u!65 &34814137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -243,6 +243,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188863851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8095223086466016799, guid: 7871fda00b71b0f49b15dd86dbdec62a, type: 3}
+  m_PrefabInstance: {fileID: 6476801075612316262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3e7986e3ebc174cb8d7cf87f2f013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &294493616
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +966,10 @@ PrefabInstance:
     - target: {fileID: 3539749483444886881, guid: 7871fda00b71b0f49b15dd86dbdec62a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095223086466016799, guid: 7871fda00b71b0f49b15dd86dbdec62a, type: 3}
+      propertyPath: isLocked
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
