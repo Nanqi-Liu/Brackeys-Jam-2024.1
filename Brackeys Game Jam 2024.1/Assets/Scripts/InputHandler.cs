@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
+    public static InputHandler instance;
     public float horizontal;
     public float vertical;
     public float moveAmount;
@@ -19,6 +20,11 @@ public class InputHandler : MonoBehaviour
 
     Vector2 movementInput;
     Vector2 cameraInput;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     private void FixedUpdate()
     {
@@ -44,9 +50,12 @@ public class InputHandler : MonoBehaviour
 
     public void TickInput(float delta)
     {
-        MoveInput(delta);
-        InteractInput(delta);
-        FlashlightInput(delta);
+        if (!PauseMenu.IsPaused)
+        {
+            MoveInput(delta);
+            InteractInput(delta);
+            FlashlightInput(delta);
+        }
     }
 
     private void MoveInput(float delta)
