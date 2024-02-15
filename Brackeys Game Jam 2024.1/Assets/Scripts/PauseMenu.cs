@@ -15,7 +15,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (pauseButton.action.triggered)
         {
-            Debug.Log("Pressed");
             if (IsPaused)
             {
                 Resume();
@@ -34,7 +33,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("Pause");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         IsPaused = false;
