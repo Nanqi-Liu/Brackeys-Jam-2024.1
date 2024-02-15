@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FlashlightHandler : MonoBehaviour
 {
+    public static FlashlightHandler instance;
+
     [SerializeField]
     private Light flashlight;
 
@@ -15,6 +17,10 @@ public class FlashlightHandler : MonoBehaviour
     [SerializeField]
     float batteryEnergy = 5;
     public float currEnergy;
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         currEnergy = maxEnergy;
@@ -28,7 +34,8 @@ public class FlashlightHandler : MonoBehaviour
         if (currEnergy <= 0)
         {
             flashlight.enabled = false;
-            OnFlashlightDeplete();
+            if(OnFlashlightDeplete != null)
+                OnFlashlightDeplete();
         }
     }
     public void ToggleFlashlight()
@@ -37,5 +44,10 @@ public class FlashlightHandler : MonoBehaviour
             flashlight.enabled = !flashlight.enabled;
         else
             flashlight.enabled = false;
+    }
+
+    public void BatteryRecharge()
+    {
+        currEnergy = Mathf.Min(currEnergy + batteryEnergy, maxEnergy);
     }
 }
