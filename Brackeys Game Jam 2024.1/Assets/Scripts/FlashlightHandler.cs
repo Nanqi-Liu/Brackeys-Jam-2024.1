@@ -12,8 +12,7 @@ public class FlashlightHandler : MonoBehaviour
     public delegate void FlashlightDepleteAction();
     public static event FlashlightDepleteAction OnFlashlightDeplete;
 
-    [SerializeField]
-    float maxEnergy = 10;
+    public float maxEnergy = 10;
     [SerializeField]
     float batteryEnergy = 5;
     public float currEnergy;
@@ -49,5 +48,10 @@ public class FlashlightHandler : MonoBehaviour
     public void BatteryRecharge()
     {
         currEnergy = Mathf.Min(currEnergy + batteryEnergy, maxEnergy);
+    }
+
+    public int CalcBatteryCell(int maxCell)
+    {
+        return (int)Mathf.Ceil(currEnergy / (maxEnergy / maxCell));
     }
 }
