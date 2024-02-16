@@ -30,11 +30,10 @@ public class FlashlightHandler : MonoBehaviour
         float delta = Time.deltaTime;
         if (flashlight.enabled)
             currEnergy = Mathf.Max(0, currEnergy - delta);
-        if (currEnergy <= 0)
+        if (currEnergy <= 0 && flashlight.enabled)
         {
             flashlight.enabled = false;
-            if(OnFlashlightDeplete != null)
-                OnFlashlightDeplete();
+            GameoverController.instance.StartGameover();
         }
     }
     public void ToggleFlashlight()
