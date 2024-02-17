@@ -16,6 +16,9 @@ public class GameoverController : MonoBehaviour
     private Material _material;
     private int centerStrength = Shader.PropertyToID("_CenterStrength");
 
+    public bool isFinishing = false;
+    public bool isStarting = false;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -34,12 +37,27 @@ public class GameoverController : MonoBehaviour
         _fullScreenEffect.SetActive(false);
     }
 
-    public void StartGameover()
+    public void StartGame()
     {
-        StartCoroutine(GameOver());
+        if (!isStarting)
+            StartCoroutine(StartNewGame());
     }
 
-    public IEnumerator GameOver()
+    public void StartGameover()
+    {
+        if(!isFinishing)
+            StartCoroutine(GameOver());
+    }
+
+    public void StartFinishGame()
+    {
+        if(!isFinishing)
+        {
+            StartCoroutine(FinishGame());
+        }
+    }
+
+    private IEnumerator GameOver()
     {
         //Debug.Log("Gameover");
         _fullScreenEffect.SetActive(true);
@@ -48,6 +66,57 @@ public class GameoverController : MonoBehaviour
 
         // game over effect
         //Debug.Log("Effect ON");
+        StartCoroutine(FadeIn());
+        yield return new WaitForSeconds(gameoverDisplayTime + 0.5f);
+        //Debug.Log("Effect OFF");
+        // Call change/reload scene here
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+
+        // undo effect
+        StartCoroutine(FadeOut());
+        yield return new WaitForSeconds(gameoverDisplayTime + 0.1f);
+
+        _fullScreenEffect.SetActive(false);
+    }
+
+    private IEnumerator FinishGame()
+    {
+        isFinishing = true;
+        _fullScreenEffect.SetActive(true);
+        _material.SetFloat(centerStrength, 5f);
+        StartCoroutine(FadeIn());
+        yield return new WaitForSeconds(gameoverDisplayTime + 1f);
+
+        SceneManager.LoadScene("FinishGame");
+
+        yield return new WaitForSeconds(5f);
+        _fullScreenEffect.SetActive(false);
+
+        SceneManager.LoadScene("MainMenu");
+        isFinishing = false;
+    }
+
+    private IEnumerator StartNewGame()
+    {
+        isStarting = true;
+        //Debug.Log("Gameover");
+        _fullScreenEffect.SetActive(true);
+        _material.SetFloat(centerStrength, 5f);
+        // disable control?
+
+        SceneManager.LoadScene("MainLevel");
+
+        // undo effect
+        StartCoroutine(FadeOut());
+        yield return new WaitForSeconds(gameoverDisplayTime + 0.1f);
+
+        _fullScreenEffect.SetActive(false);
+        isStarting = false;
+    }
+
+    private IEnumerator FadeIn()
+    {
         float elapsedTime = 0f;
         while (elapsedTime < gameoverDisplayTime)
         {
@@ -58,18 +127,11 @@ public class GameoverController : MonoBehaviour
 
             yield return null;
         }
-        //Debug.Log("Effect OFF");
-        // Call change/reload scene here
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+    }
 
-        // Wait for 1 sec
-        //Debug.Log("Start waiting");
-        yield return new WaitForSeconds(0.5f);
-        //Debug.Log("End waiting");
-
-        // undo effect
-        elapsedTime = 0f;
+    private IEnumerator FadeOut()
+    {
+        float elapsedTime = 0f;
         while (elapsedTime < gameoverDisplayTime)
         {
             elapsedTime += Time.deltaTime;
@@ -79,7 +141,5 @@ public class GameoverController : MonoBehaviour
 
             yield return null;
         }
-
-        _fullScreenEffect.SetActive(false);
     }
 }

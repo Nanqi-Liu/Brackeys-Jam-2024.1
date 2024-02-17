@@ -6,7 +6,7 @@ public class KeyHandler : MonoBehaviour
 {
     public static KeyHandler instance;
     private int currKey = 0;
-    void Start()
+    private void Awake()
     {
         instance = this;
         currKey = 0;
