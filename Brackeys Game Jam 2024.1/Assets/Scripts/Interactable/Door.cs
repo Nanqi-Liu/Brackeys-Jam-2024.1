@@ -6,7 +6,6 @@ public class Door : Interactable
 {
     private Animator animator;
     public int isLocked = 0;
-    public int hasKey = 0;
 
     public bool isOpen = false;
     // Start is called before the first frame update
@@ -51,7 +50,7 @@ public class Door : Interactable
             }
             else
             {
-                if (hasKey > 0)
+                if (KeyHandler.instance.GetKey() > 0)
                 {
                     // Using key to unlock
                     Unlock();
@@ -85,7 +84,7 @@ public class Door : Interactable
 
     private void Unlock()
     {
-        hasKey -= 1;
+        KeyHandler.instance.DecreaseKey();
         isLocked -= 1;
         // Play some unlock sound
         AudioManager.instance.PlaySound("DoorUnlock");

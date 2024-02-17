@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 5565465017447248692}
   - component: {fileID: 6710887571432054716}
   - component: {fileID: 8370300080378376774}
+  - component: {fileID: 400287835858794608}
   - component: {fileID: 5016757288205822010}
   m_Layer: 7
   m_Name: Player
@@ -248,6 +249,18 @@ MonoBehaviour:
   maxEnergy: 10
   batteryEnergy: 5
   currEnergy: 0
+--- !u!114 &400287835858794608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237261477368149918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0088059eb18dbaa47b2250422886f751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5016757288205822010
 MonoBehaviour:
   m_ObjectHideFlags: 0

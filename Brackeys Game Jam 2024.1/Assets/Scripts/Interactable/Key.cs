@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Key : Interactable
 {
-    [SerializeField]
-    Door targetDoor;
-
     Material material;
 
     private void Start()
@@ -17,7 +14,8 @@ public class Key : Interactable
     public override void Interact()
     {
         // Pickup the key
-        targetDoor.hasKey += 1;
+        //targetDoor.hasKey += 1;
+        KeyHandler.instance.IncreaseKey();
         AudioManager.instance.PlaySound("KeyPickup");
         Destroy(gameObject);
     }
