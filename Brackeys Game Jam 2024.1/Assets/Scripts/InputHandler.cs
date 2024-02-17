@@ -54,7 +54,7 @@ public class InputHandler : MonoBehaviour
         {
             MoveInput(delta);
             InteractInput(delta);
-            FlashlightInput(delta);
+            //FlashlightInput(delta);
         }
     }
 

@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashlight: {fileID: 233997774842828693}
-  maxEnergy: 10
-  batteryEnergy: 5
+  maxEnergy: 30
+  batteryEnergy: 10
   currEnergy: 0
 --- !u!114 &400287835858794608
 MonoBehaviour:
@@ -451,7 +451,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6780432338318930588}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
