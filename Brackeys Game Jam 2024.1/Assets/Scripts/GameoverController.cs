@@ -41,17 +41,16 @@ public class GameoverController : MonoBehaviour
 
     public IEnumerator GameOver()
     {
-        Debug.Log("Gameover");
+        //Debug.Log("Gameover");
         _fullScreenEffect.SetActive(true);
         _material.SetFloat(centerStrength, 5f);
         // disable control?
 
         // game over effect
-        Debug.Log("Effect ON");
+        //Debug.Log("Effect ON");
         float elapsedTime = 0f;
         while (elapsedTime < gameoverDisplayTime)
         {
-            Debug.Log(elapsedTime);
             elapsedTime += Time.fixedDeltaTime;
 
             float lerpedCenterStrength = Mathf.Lerp(5f, -5f, (elapsedTime / gameoverDisplayTime));
@@ -59,15 +58,15 @@ public class GameoverController : MonoBehaviour
 
             yield return null;
         }
-        Debug.Log("Effect OFF");
+        //Debug.Log("Effect OFF");
         // Call change/reload scene here
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
 
         // Wait for 1 sec
-        Debug.Log("Start waiting");
+        //Debug.Log("Start waiting");
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("End waiting");
+        //Debug.Log("End waiting");
 
         // undo effect
         elapsedTime = 0f;
