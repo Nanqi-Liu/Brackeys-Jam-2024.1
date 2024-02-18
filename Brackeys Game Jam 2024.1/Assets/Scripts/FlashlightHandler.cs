@@ -16,6 +16,8 @@ public class FlashlightHandler : MonoBehaviour
     [SerializeField]
     float batteryEnergy = 5;
     public float currEnergy;
+
+    private bool depleted = false;
     private void Awake()
     {
         instance = this;
@@ -23,6 +25,7 @@ public class FlashlightHandler : MonoBehaviour
     private void Start()
     {
         currEnergy = maxEnergy;
+        flashlight.enabled = true;
     }
 
     private void FixedUpdate()
@@ -30,9 +33,10 @@ public class FlashlightHandler : MonoBehaviour
         float delta = Time.deltaTime;
         if (flashlight.enabled)
             currEnergy = Mathf.Max(0, currEnergy - delta);
-        if (currEnergy <= 0 && flashlight.enabled)
+        if (currEnergy <= 0 && flashlight.enabled && !depleted)
         {
-            flashlight.enabled = false;
+            depleted = true;
+            //flashlight.enabled = false;
             GameoverController.instance.StartGameover();
         }
     }

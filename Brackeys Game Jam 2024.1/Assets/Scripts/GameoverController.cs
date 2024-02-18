@@ -16,6 +16,7 @@ public class GameoverController : MonoBehaviour
     private Material _material;
     private int centerStrength = Shader.PropertyToID("_CenterStrength");
 
+    public bool isGameover = false;
     public bool isFinishing = false;
     public bool isStarting = false;
 
@@ -45,7 +46,7 @@ public class GameoverController : MonoBehaviour
 
     public void StartGameover()
     {
-        if(!isFinishing)
+        if(!isFinishing && !isGameover)
             StartCoroutine(GameOver());
     }
 
@@ -59,6 +60,7 @@ public class GameoverController : MonoBehaviour
 
     private IEnumerator GameOver()
     {
+        isGameover = true;
         //Debug.Log("Gameover");
         _fullScreenEffect.SetActive(true);
         _material.SetFloat(centerStrength, 5f);
@@ -78,6 +80,7 @@ public class GameoverController : MonoBehaviour
         yield return new WaitForSeconds(gameoverDisplayTime + 0.1f);
 
         _fullScreenEffect.SetActive(false);
+        isGameover = false;
     }
 
     private IEnumerator FinishGame()

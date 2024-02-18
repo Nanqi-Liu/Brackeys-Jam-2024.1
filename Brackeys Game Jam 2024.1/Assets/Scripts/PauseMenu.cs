@@ -5,11 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu instance;
     public static bool IsPaused = false;
     public GameObject pauseMenuUI;
 
     [SerializeField]
     InputActionReference pauseButton;
+    private void Awake()
+    {
+        instance = this;
+    }
     // Update is called once per frame
     void Update()
     {

@@ -50,6 +50,7 @@ public class InputHandler : MonoBehaviour
 
     public void TickInput(float delta)
     {
+        RestartGameInput(delta);
         if (!PauseMenu.IsPaused)
         {
             MoveInput(delta);
@@ -84,6 +85,19 @@ public class InputHandler : MonoBehaviour
         if (b_Input)
         {
             flashlightFlag = true;
+        }
+    }
+
+    private void RestartGameInput(float delta)
+    {
+        bool r_Input = inputActions.PlayerAction.Restart.triggered;
+        if (r_Input)
+        {
+            if (PauseMenu.IsPaused)
+            {
+                PauseMenu.instance.Resume();
+            }
+            GameoverController.instance.StartGameover();
         }
     }
 }
