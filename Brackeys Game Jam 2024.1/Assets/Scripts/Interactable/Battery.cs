@@ -13,6 +13,7 @@ public class Battery : Interactable
     {
         FlashlightHandler.instance.BatteryRecharge();
         // TODO: Add a sound trigger
+        AudioManager.instance.PlaySound("Beep");
         Destroy(gameObject);
     }
 

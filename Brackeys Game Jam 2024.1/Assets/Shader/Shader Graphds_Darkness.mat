@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CenterStrength: 3.8230395
+    - _CenterStrength: -5
     - _Enable: 1
     - _FullScreenIntensity: 1
     m_Colors:
