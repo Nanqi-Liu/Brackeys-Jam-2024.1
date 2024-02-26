@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu instance;
-    public static bool IsPaused = false;
     public GameObject pauseMenuUI;
 
     [SerializeField]
@@ -14,21 +13,6 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (pauseButton.action.triggered)
-        {
-            if (IsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
     }
 
     private void FixedUpdate()
@@ -40,13 +24,11 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
-        IsPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
-        IsPaused = true;
     }
 }

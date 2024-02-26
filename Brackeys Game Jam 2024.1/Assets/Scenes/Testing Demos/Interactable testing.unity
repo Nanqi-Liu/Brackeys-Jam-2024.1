@@ -762,6 +762,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3544417698333051167, guid: 8d4f146fdb4114e4e881f0a2593aee29, type: 3}
+      propertyPath: lookSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544417698333051167, guid: 8d4f146fdb4114e4e881f0a2593aee29, type: 3}
+      propertyPath: pivotSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544417698333051167, guid: 8d4f146fdb4114e4e881f0a2593aee29, type: 3}
       propertyPath: rotationSpeed
       value: 1
       objectReference: {fileID: 0}
@@ -816,10 +824,6 @@ PrefabInstance:
     - target: {fileID: 5237261477510969884, guid: 8d4f146fdb4114e4e881f0a2593aee29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370300080378376774, guid: 8d4f146fdb4114e4e881f0a2593aee29, type: 3}
-      propertyPath: maxEnergy
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1074,6 +1078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2841580864332532424, guid: 8c023874e0cd9564a8950c6cc79c1abf, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6896121618222303713, guid: 8c023874e0cd9564a8950c6cc79c1abf, type: 3}
       propertyPath: m_Name
       value: BaiscGameobjects

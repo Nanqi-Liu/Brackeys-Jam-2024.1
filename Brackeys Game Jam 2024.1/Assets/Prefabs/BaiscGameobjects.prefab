@@ -900,6 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3388606291295785722}
   - component: {fileID: 2841580864332532424}
+  - component: {fileID: 6098614613043522886}
   m_Layer: 0
   m_Name: PlayerInput
   m_TagString: Untagged
@@ -952,6 +953,18 @@ MonoBehaviour:
   m_DefaultActionMap: Pause
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6098614613043522886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201061937540036905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e81932ccb7fde1428a243104c2f4698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2287790470591828271
 GameObject:
   m_ObjectHideFlags: 0

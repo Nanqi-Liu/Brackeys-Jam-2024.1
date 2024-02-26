@@ -19,9 +19,13 @@ public class PlayerLocomotion : MonoBehaviour
     float movementSpeed = 5f;
 
     [SerializeField]
-    float lookSpeed = 0.1f;
+    float mouseLookSpeed = 0.1f;
     [SerializeField]
-    float pivotSpeed = 0.03f;
+    float gamepadLookSpeed = 0.1f;
+    [SerializeField]
+    float mousePivotSpeed = 0.03f;
+    [SerializeField]
+    float gamepadPivotSpeed = 0.03f;
 
     private float lookAngle;
     private float pivotAngle;
@@ -47,44 +51,44 @@ public class PlayerLocomotion : MonoBehaviour
     {
         float delta = Time.deltaTime;
         HandleMovement(delta);
-        HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);
+        HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY, inputHandler.gamepadX, inputHandler.gamepadY);
     }
 
     #region Movement
     Vector3 normalVector;
     Vector3 targetPosition;
 
-    public void HandleCameraRotation(float delta, float mouseXInput, float mouseYInput)
-        {
-            lookAngle += (mouseXInput * lookSpeed) / delta;
-            pivotAngle -= (mouseYInput * pivotSpeed) / delta;
-            pivotAngle = Mathf.Clamp(pivotAngle, minimumPivot, maximumPivot);
+    public void HandleCameraRotation(float delta, float mouseXInput, float mouseYInput, float gamepadXInput, float gamepadYInput)
+    {
+        lookAngle += ((mouseXInput * mouseLookSpeed) + (gamepadXInput * gamepadLookSpeed)) / delta;
+        pivotAngle -= ((mouseYInput * mousePivotSpeed) + (gamepadYInput * gamepadPivotSpeed)) / delta;
+        pivotAngle = Mathf.Clamp(pivotAngle, minimumPivot, maximumPivot);
 
-            Vector3 rotation = Vector3.zero;
-            rotation.y = lookAngle;
-            Quaternion targetRotation = Quaternion.Euler(rotation);
-            myTransform.rotation = targetRotation;
+        Vector3 rotation = Vector3.zero;
+        rotation.y = lookAngle;
+        Quaternion targetRotation = Quaternion.Euler(rotation);
+        myTransform.rotation = targetRotation;
 
-            rotation = Vector3.zero;
-            rotation.x = pivotAngle;
+        rotation = Vector3.zero;
+        rotation.x = pivotAngle;
 
-            targetRotation = Quaternion.Euler(rotation);
-            cameraObject.localRotation = targetRotation;
-        }
+        targetRotation = Quaternion.Euler(rotation);
+        cameraObject.localRotation = targetRotation;
+    }
 
     public void HandleMovement(float delta)
-        {
-            moveDirection = myTransform.forward * inputHandler.vertical;
-            moveDirection += myTransform.right * inputHandler.horizontal;
-            moveDirection.Normalize();
-            moveDirection.y = 0;
+    {
+        moveDirection = myTransform.forward * inputHandler.vertical;
+        moveDirection += myTransform.right * inputHandler.horizontal;
+        moveDirection.Normalize();
+        moveDirection.y = 0;
 
-            float speed = movementSpeed;
-            moveDirection *= speed;
+        float speed = movementSpeed;
+        moveDirection *= speed;
 
-            Vector3 projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
-            rigidbody.velocity = projectedVelocity;
-        }
+        Vector3 projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
+        rigidbody.velocity = projectedVelocity;
+    }
 
     #endregion
 }

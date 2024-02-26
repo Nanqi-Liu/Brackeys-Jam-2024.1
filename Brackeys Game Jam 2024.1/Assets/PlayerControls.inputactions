@@ -2,24 +2,69 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Player Movement",
+            "name": "Player",
             "id": "af28ced6-b9ba-493e-9ea2-5c43bcf1af8c",
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "81e2a5d3-1af0-49d4-85ef-db355bcd001b",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MouseCamera",
+                    "type": "Value",
+                    "id": "1497f62e-6f73-4942-874a-22db6eedcfb2",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "GamepadCamera",
+                    "type": "Value",
+                    "id": "03a69995-003c-4c80-af2d-73d924604018",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "53b93032-7e3d-4cab-a950-b96cedb99c86",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Camera",
-                    "type": "PassThrough",
-                    "id": "1497f62e-6f73-4942-874a-22db6eedcfb2",
-                    "expectedControlType": "Vector2",
-                    "processors": "StickDeadzone",
+                    "name": "Flashlight",
+                    "type": "Button",
+                    "id": "e171cd33-c3c5-468e-b4fa-e6226e90732a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "b4dc1c41-7a22-4275-8d47-6880c3b1b796",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "d7867889-b2b5-4761-a14d-4698a78c870e",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 }
@@ -93,64 +138,18 @@
                 },
                 {
                     "name": "",
-                    "id": "22e297f6-2ced-4e9b-b941-4f6fbb0056e3",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "828fcc13-11b1-4598-bd03-114b9288a88c",
                     "path": "<Mouse>/delta",
                     "interactions": "",
-                    "processors": "NormalizeVector2",
+                    "processors": "",
                     "groups": "",
-                    "action": "Camera",
+                    "action": "MouseCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Player Action",
-            "id": "e7424f60-1ce5-4c59-96a0-56212d22933f",
-            "actions": [
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "eab3cca6-cae6-45ae-8c2d-805343ef1edd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 },
-                {
-                    "name": "Flashlight",
-                    "type": "Button",
-                    "id": "442c1faa-b52e-4a98-bebb-492302d98329",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Restart",
-                    "type": "Button",
-                    "id": "007298d1-cbf0-4ec3-b1a0-e5e135deb334",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
                 {
                     "name": "",
-                    "id": "cc67d180-282f-4e31-af1f-11dd8313d064",
+                    "id": "483de6f6-9909-41e3-b32a-dd7816e6df68",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -161,7 +160,7 @@
                 },
                 {
                     "name": "",
-                    "id": "89247f7c-5970-45ef-9a9f-29e0d3bbf58c",
+                    "id": "162515a9-8e40-487d-80e6-9ff15c1de862",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -172,7 +171,7 @@
                 },
                 {
                     "name": "",
-                    "id": "74bfd63b-cb2c-445c-a8e2-a767557226d4",
+                    "id": "4d1b9af8-b7ed-4b37-8d18-9389b3b911ba",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
@@ -183,7 +182,7 @@
                 },
                 {
                     "name": "",
-                    "id": "1fc27fec-a446-4aa6-9cdd-f9d8700cb189",
+                    "id": "1afcd079-c1bd-472e-82bb-2ba789606926",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
@@ -194,12 +193,45 @@
                 },
                 {
                     "name": "",
-                    "id": "8f9d5282-fea1-40c8-bb9e-df7d204647ab",
+                    "id": "c93ebbe6-89b8-485a-b137-e9cb5d32ed82",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c727d87-8320-430b-a53b-07ef9fe399a2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d1c5fb1-2ec1-4e31-869f-695f424a2586",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f42495d9-4923-437e-abb4-d70a8f054c9a",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GamepadCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
